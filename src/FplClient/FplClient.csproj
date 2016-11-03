@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{08BA1635-3C90-47EC-B5DD-C11D184A75AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FplClient</RootNamespace>
+    <AssemblyName>FplClient</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clients\FplEntryHistoryClient.cs" />
+    <Compile Include="Clients\FplLeagueClient.cs" />
+    <Compile Include="Clients\FplPlayerClient.cs" />
+    <Compile Include="Clients\FplEntryClient.cs" />
+    <Compile Include="IFplEntryHistoryClient.cs" />
+    <Compile Include="IFplEntryClient.cs" />
+    <Compile Include="IFplLeagueClient.cs" />
+    <Compile Include="IFplPlayerClient.cs" />
+    <Compile Include="Data\FplAutomaticSub.cs" />
+    <Compile Include="Data\FplClassicLeague.cs" />
+    <Compile Include="Data\FplClassicLeagueEntry.cs" />
+    <Compile Include="Data\FplClassicLeagueProperties.cs" />
+    <Compile Include="Data\FplClassicLeagueStandings.cs" />
+    <Compile Include="Data\FplEntryClassicLeague.cs" />
+    <Compile Include="Data\FplEntryHistory.cs" />
+    <Compile Include="Data\FplEntryHistoryChip.cs" />
+    <Compile Include="Data\FplEntrySeasonHistory.cs" />
+    <Compile Include="Data\FplEventEntryHistory.cs" />
+    <Compile Include="Data\FplEventEntryState.cs" />
+    <Compile Include="Data\FplFixture.cs" />
+    <Compile Include="Data\FplFixtureStat.cs" />
+    <Compile Include="Data\FplFixtureStats.cs" />
+    <Compile Include="Data\FplFixtureStatValue.cs" />
+    <Compile Include="Data\FplEntryHeadToHeadLeague.cs" />
+    <Compile Include="Data\FplHeadToHeadLeague.cs" />
+    <Compile Include="Data\FplHeadToHeadLeagueEntry.cs" />
+    <Compile Include="Data\FplHeadToHeadLeagueMatch.cs" />
+    <Compile Include="Data\FplHeadToHeadLeagueMatches.cs" />
+    <Compile Include="Data\FplHeadToHeadLeagueProperties.cs" />
+    <Compile Include="Data\FplHeadToHeadLeagueStandings.cs" />
+    <Compile Include="Data\FplEntryLeagues.cs" />
+    <Compile Include="Data\FplEntry.cs" />
+    <Compile Include="Data\FplNewLeagueEntries.cs" />
+    <Compile Include="Data\FplNewLeagueEntry.cs" />
+    <Compile Include="Data\FplPick.cs" />
+    <Compile Include="Data\FplPlayer.cs" />
+    <Compile Include="Data\FplPlayerFixture.cs" />
+    <Compile Include="Data\FplPlayerMatchStats.cs" />
+    <Compile Include="Data\FplPlayerPosition.cs" />
+    <Compile Include="Data\FplEventEntry.cs" />
+    <Compile Include="Data\FplPickStats.cs" />
+    <Compile Include="Data\FplPlayerSeasonHistory.cs" />
+    <Compile Include="Data\FplPlayerSummary.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\ManualAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
