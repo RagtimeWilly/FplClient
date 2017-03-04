@@ -30,7 +30,7 @@ namespace FplClient.Data
         public int Code { get; set; }
 
         [JsonProperty("kickoff_time")]
-        public DateTime KickoffTime { get; set; }
+        public DateTime? KickoffTime { get; set; }
 
         [JsonProperty("team_h_score")]
         public int? HomeTeamScore { get; set; }
@@ -51,7 +51,7 @@ namespace FplClient.Data
         public bool FinishedProvisional { get; set; }
 
         [JsonProperty("event")]
-        public int Event { get; set; }
+        public int? Event { get; set; }
 
         [JsonProperty("team_a")]
         public int AwayTeamId { get; set; }
