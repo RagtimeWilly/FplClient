@@ -1,5 +1,3 @@
-# FplClient
-
 ![Build Status](https://ci.appveyor.com/api/projects/status/github/RagtimeWilly/FplClient?branch=master&svg=true) [![NuGet](https://img.shields.io/nuget/v/FplClient.svg)](https://www.nuget.org/packages/FplClient/)
 
 .NET library which provides a simple interface for the official Fantasy Premier League API (https://fantasy.premierleague.com).
