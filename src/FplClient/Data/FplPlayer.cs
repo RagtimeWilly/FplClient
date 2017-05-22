@@ -110,7 +110,7 @@ namespace FplClient.Data
         public double EpThis { get; set; }
 
         [JsonProperty("ep_next")]
-        public double EpNext { get; set; }
+        public double? EpNext { get; set; }
 
         [JsonProperty("special")]
         public bool Special { get; set; }

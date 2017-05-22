@@ -19,7 +19,7 @@ namespace FplClient.Data
         public bool EventDay { get; set; }
 
         [JsonProperty("deadline_time")]
-        public DateTime DeadlineTime { get; set; }
+        public DateTime? DeadlineTime { get; set; }
 
         [JsonProperty("deadline_time_formatted")]
         public string FormattedDeadlineTime { get; set; }
