@@ -17,7 +17,7 @@ namespace FplClient.Tests.Clients
         [Test]
         public void Retrieves_classic_league_data_successfully()
         {
-            var leagueData = _context.Sut.GetClassicLeague(207496).Result;
+            var leagueData = _context.Sut.GetClassicLeague(33).Result;
 
             Assert.IsNotNull(leagueData);
             Assert.IsTrue(leagueData.Standings.Entries.Count > 0);
@@ -35,7 +35,7 @@ namespace FplClient.Tests.Clients
         [Test]
         public void Retrieves_head_to_head_league_data_successfully()
         {
-            var leagueData = _context.Sut.GetHeadToHeadLeague(272222).Result;
+            var leagueData = _context.Sut.GetHeadToHeadLeague(751846).Result;
 
             Assert.IsNotNull(leagueData);
             Assert.IsTrue(leagueData.Standings.Entries.Count > 0);
