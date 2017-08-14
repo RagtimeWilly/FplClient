@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clients\FplEntryClientTests.cs" />
+    <Compile Include="Clients\FplFixtureClientTests.cs" />
     <Compile Include="Clients\FplGameweekClientTests.cs" />
     <Compile Include="Clients\FplLeagueClientTests.cs" />
     <Compile Include="Clients\FplPlayerClientTests.cs" />
