@@ -47,11 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clients\FplEntryHistoryClient.cs" />
+    <Compile Include="Clients\FplGameweekClient.cs" />
     <Compile Include="Clients\FplLeagueClient.cs" />
     <Compile Include="Clients\FplPlayerClient.cs" />
     <Compile Include="Clients\FplEntryClient.cs" />
+    <Compile Include="Data\FplGameweek.cs" />
     <Compile Include="IFplEntryHistoryClient.cs" />
     <Compile Include="IFplEntryClient.cs" />
+    <Compile Include="IFplGameweekClient.cs" />
     <Compile Include="IFplLeagueClient.cs" />
     <Compile Include="IFplPlayerClient.cs" />
     <Compile Include="Data\FplAutomaticSub.cs" />
