@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using FplClient.Data;
@@ -17,6 +18,8 @@ namespace FplClient.Clients
 
         public async Task<FplClassicLeague> GetClassicLeague(int leagueId, int? page = null)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             using (var client = _clientFactory())
             {
                 var url = ClassicLeagueUrlFor(leagueId, page);
@@ -29,6 +32,8 @@ namespace FplClient.Clients
 
         public async Task<FplHeadToHeadLeague> GetHeadToHeadLeague(int leagueId)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             using (var client = _clientFactory())
             {
                 var url = HeadToHeadLeagueUrlFor(leagueId);

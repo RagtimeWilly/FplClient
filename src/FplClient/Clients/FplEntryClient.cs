@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using FplClient.Data;
@@ -17,6 +18,8 @@ namespace FplClient.Clients
 
         public async Task<FplEventEntry> GetTeam(int teamId, int gameweek)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             using (var client = _clientFactory())
             {
                 var url = TeamUrlFor(teamId, gameweek);

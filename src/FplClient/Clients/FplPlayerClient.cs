@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using FplClient.Data;
@@ -18,6 +19,8 @@ namespace FplClient.Clients
 
         public async Task<IEnumerable<FplPlayer>> GetAllPlayers()
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             using (var client = _clientFactory())
             {
                 const string url = "https://fantasy.premierleague.com/drf/elements/";
@@ -30,6 +33,8 @@ namespace FplClient.Clients
 
         public async Task<FplPlayerSummary> GetPlayer(int playerId)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             using (var client = _clientFactory())
             {
                 var url = PlayerSummaryUrlFor(playerId);
