@@ -52,6 +52,8 @@
     <Compile Include="Clients\FplLeagueClient.cs" />
     <Compile Include="Clients\FplPlayerClient.cs" />
     <Compile Include="Clients\FplEntryClient.cs" />
+    <Compile Include="Data\FplBasicEntry.cs" />
+    <Compile Include="Data\FplEntryPicks.cs" />
     <Compile Include="Data\FplGameweek.cs" />
     <Compile Include="IFplEntryHistoryClient.cs" />
     <Compile Include="IFplEntryClient.cs" />

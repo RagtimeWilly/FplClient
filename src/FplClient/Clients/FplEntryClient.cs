@@ -16,13 +16,28 @@ namespace FplClient.Clients
             _clientFactory = clientFactory;
         }
 
-        public async Task<FplEventEntry> GetTeam(int teamId, int gameweek)
+        public async Task<FplBasicEntry> Get(int teamId)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             using (var client = _clientFactory())
             {
-                var url = TeamUrlFor(teamId, gameweek);
+                var url = $"https://fantasy.premierleague.com/drf/entry/{teamId}";
+
+                var json = await client.GetStringAsync(url);
+
+                return JsonConvert.DeserializeObject<FplBasicEntry>(json);
+            }
+        }
+
+        [Obsolete("This no longer appears to return data as of September 2017.", false)]
+        public async Task<FplEventEntry> GetEventEntry(int teamId, int gameweek)
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+            using (var client = _clientFactory())
+            {
+                var url = $"https://fantasy.premierleague.com/drf/entry/{teamId}/event/{gameweek}";
 
                 var json = await client.GetStringAsync(url);
 
@@ -30,9 +45,18 @@ namespace FplClient.Clients
             }
         }
 
-        private static string TeamUrlFor(int teamId, int gameweek)
+        public async Task<FplEntryPicks> GetPicks(int teamId, int gameweek)
         {
-            return $"https://fantasy.premierleague.com/drf/entry/{teamId}/event/{gameweek}";
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+            using (var client = _clientFactory())
+            {
+                var url = $"https://fantasy.premierleague.com/drf/entry/{teamId}/event/{gameweek}/picks";
+
+                var json = await client.GetStringAsync(url);
+
+                return JsonConvert.DeserializeObject<FplEntryPicks>(json);
+            }
         }
     }
 }

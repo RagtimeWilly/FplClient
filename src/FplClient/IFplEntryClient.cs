@@ -5,6 +5,10 @@ namespace FplClient
 {
     public interface IFplEntryClient
     {
-        Task<FplEventEntry> GetTeam(int teamId, int gameweek);
+        Task<FplBasicEntry> Get(int teamId);
+
+        Task<FplEventEntry> GetEventEntry(int teamId, int gameweek);
+
+        Task<FplEntryPicks> GetPicks(int teamId, int gameweek);
     }
 }
