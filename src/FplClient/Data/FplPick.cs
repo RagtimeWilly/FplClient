@@ -11,7 +11,7 @@ namespace FplClient.Data
         public int ElementType { get; set; }
 
         [JsonProperty("position")]
-        public FplPlayerPosition Position { get; set; }
+        public int TeamPosition { get; set; }
 
         [JsonProperty("points")]
         public int Points { get; set; }
