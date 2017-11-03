@@ -30,5 +30,19 @@ namespace FplClient.Clients
                 return JsonConvert.DeserializeObject<IEnumerable<FplFixture>>(json);
             }
         }
+
+        public async Task<IEnumerable<FplFixture>> GetFixtures(int eventId)
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+            using (var client = _clientFactory())
+            {
+                string url = "https://fantasy.premierleague.com/drf/fixtures/?event=" + eventId;
+
+                var json = await client.GetStringAsync(url);
+
+                return JsonConvert.DeserializeObject<IEnumerable<FplFixture>>(json);
+            }
+        }
     }
 }

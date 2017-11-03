@@ -24,6 +24,14 @@ namespace FplClient.Tests.Clients
             Assert.AreEqual(380, data.Count());
         }
 
+        [Test]
+        public void Retrieves_fixtures_gameweek_one_successfully()
+        {
+            var data = _context.Sut.GetFixtures(1).Result;
+
+            Assert.AreEqual(10, data.Count());
+        }
+
         private class TestContext
         {
             public TestContext()

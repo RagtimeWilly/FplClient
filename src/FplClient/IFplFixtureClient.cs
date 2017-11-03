@@ -7,5 +7,7 @@ namespace FplClient
     public interface IFplFixtureClient
     {
         Task<IEnumerable<FplFixture>> GetFixtures();
+
+        Task<IEnumerable<FplFixture>> GetFixtures(int eventId);
     }
 }
