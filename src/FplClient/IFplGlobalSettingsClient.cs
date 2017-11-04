@@ -3,7 +3,7 @@ using FplClient.Data;
 
 namespace FplClient
 {
-    public interface IFplGlobalSettings
+    public interface IFplGlobalSettingsClient
     {
         Task<FplGlobalSettings> GetGlobalSettings();
     }

@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace FplClient.Clients
 {
-    public class FplGlobalSettingsClient : IFplGlobalSettings
+    public class FplGlobalSettingsClient : IFplGlobalSettingsClient
     {
         private readonly Func<HttpClient> _clientFactory;
 

@@ -8,6 +8,6 @@ namespace FplClient
     {
         Task<IEnumerable<FplFixture>> GetFixtures();
 
-        Task<IEnumerable<FplFixture>> GetFixtures(int eventId);
+        Task<IEnumerable<FplFixture>> GetFixturesByGameweek(int id);
     }
 }

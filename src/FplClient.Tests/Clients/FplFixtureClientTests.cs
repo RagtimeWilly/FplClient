@@ -25,9 +25,9 @@ namespace FplClient.Tests.Clients
         }
 
         [Test]
-        public void Retrieves_fixtures_gameweek_one_successfully()
+        public void Retrieves_fixtures_for_gameweek_one_successfully()
         {
-            var data = _context.Sut.GetFixtures(1).Result;
+            var data = _context.Sut.GetFixturesByGameweek(1).Result;
 
             Assert.AreEqual(10, data.Count());
         }
