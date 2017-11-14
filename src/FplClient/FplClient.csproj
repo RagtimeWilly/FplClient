@@ -47,16 +47,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clients\FplEntryHistoryClient.cs" />
+    <Compile Include="Clients\FplGlobalSettingsClient.cs" />
     <Compile Include="Clients\FplFixtureClient.cs" />
     <Compile Include="Clients\FplGameweekClient.cs" />
     <Compile Include="Clients\FplLeagueClient.cs" />
     <Compile Include="Clients\FplPlayerClient.cs" />
     <Compile Include="Clients\FplEntryClient.cs" />
+    <Compile Include="Data\FplEvent.cs" />
+    <Compile Include="Data\FplFixtureStatType.cs" />
+    <Compile Include="Data\FplGame.cs" />
+    <Compile Include="Data\FplGameSettings.cs" />
+    <Compile Include="Data\FplGlobalSettings.cs" />
     <Compile Include="Data\FplBasicEntry.cs" />
     <Compile Include="Data\FplEntryPicks.cs" />
     <Compile Include="Data\FplGameweek.cs" />
+    <Compile Include="Data\FplPhase.cs" />
+    <Compile Include="Data\FplPlayerType.cs" />
+    <Compile Include="Data\FplStatHeading.cs" />
+    <Compile Include="Data\FplStats.cs" />
+    <Compile Include="Data\FplStatsOption.cs" />
+    <Compile Include="Data\FplTeam.cs" />
     <Compile Include="IFplEntryHistoryClient.cs" />
     <Compile Include="IFplEntryClient.cs" />
+    <Compile Include="IFplGlobalSettingsClient.cs" />
     <Compile Include="IFplFixtureClient.cs" />
     <Compile Include="IFplGameweekClient.cs" />
     <Compile Include="IFplLeagueClient.cs" />

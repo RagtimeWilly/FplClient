@@ -104,6 +104,28 @@ var playerData = client
 ```
 This will return the [FplPlayerSummary](https://github.com/RagtimeWilly/FplClient/blob/master/src/FplClient/Data/FplPlayerSummary.cs) data.
 
+### All Fixtures
+
+```
+var client = new FplFixtureClient(() => new HttpClient());
+
+var fixtures = client
+             .GetFixtures()
+             .Result;
+```
+This will return all the [FplFixture](https://github.com/RagtimeWilly/FplClient/blob/master/src/FplClient/Data/FplFixture.cs) data as an `IEnumerable<FplFixture>`.
+
+### Gameweek Fixtures
+
+```
+var client = new FplFixtureClient(() => new HttpClient());
+
+var fixtures = client
+             .GetFixtures(8)
+             .Result;
+```
+This will return all the [FplFixture](https://github.com/RagtimeWilly/FplClient/blob/master/src/FplClient/Data/FplFixture.cs) data as an `IEnumerable<FplFixture>` for gameweek 8.
+
 ## Getting help
 
 If you have any problems or suggestions please create an [issue](https://github.com/RagtimeWilly/FplClient/issues) or a [pull request](https://github.com/RagtimeWilly/FplClient/pulls)
