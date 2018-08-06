@@ -6,7 +6,7 @@ namespace FplClient.Data
     public class FplGlobalSettings
     {
         [JsonProperty("current-event")]
-        public int CurrentEvent { get; set; }
+        public int? CurrentEvent { get; set; }
 
         [JsonProperty("next-event")]
         public int NextEvent { get; set; }
