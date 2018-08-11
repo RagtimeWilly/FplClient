@@ -107,7 +107,7 @@ namespace FplClient.Data
         public double PointsPerGame { get; set; }
 
         [JsonProperty("ep_this")]
-        public double EpThis { get; set; }
+        public double? EpThis { get; set; }
 
         [JsonProperty("ep_next")]
         public double? EpNext { get; set; }
