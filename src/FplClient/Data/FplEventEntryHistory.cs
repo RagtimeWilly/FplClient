@@ -23,7 +23,7 @@ namespace FplClient.Data
         public string RankSort { get; set; }
 
         [JsonProperty("overall_rank")]
-        public int OverallRank { get; set; }
+        public int? OverallRank { get; set; }
 
         [JsonProperty("targets")]
         public string Targets { get; set; }
