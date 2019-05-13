@@ -9,10 +9,10 @@ namespace FplClient.Data
         public int? CurrentEvent { get; set; }
 
         [JsonProperty("next-event")]
-        public int NextEvent { get; set; }
+        public int? NextEvent { get; set; }
 
         [JsonProperty("last-entry-event")]
-        public int LastEntryEvent { get; set; }
+        public int? LastEntryEvent { get; set; }
 
         [JsonProperty("teams")]
         public ICollection<FplTeam> Teams { get; set; }
