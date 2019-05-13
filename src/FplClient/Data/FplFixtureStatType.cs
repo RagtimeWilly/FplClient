@@ -8,6 +8,7 @@
         PenaltySaved,
         PenaltyMissed,
         YellowCard,
-        RedCard
+        RedCard,
+        Save
     }
 }
