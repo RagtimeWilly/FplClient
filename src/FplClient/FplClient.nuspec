@@ -2,21 +2,21 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>FplClient</id>
-        <version>$version$</version>
+        <version>2.0.0</version>
         <title>FplClient</title>
         <authors>Sean Comiskey</authors>
         <owners>Sean Comiskey</owners>
-		<licenseUrl>https://github.com/RagtimeWilly/FplClient/LICENSE</licenseUrl>
+		    <licenseUrl>https://github.com/RagtimeWilly/FplClient/LICENSE</licenseUrl>
         <projectUrl>https://github.com/RagtimeWilly/FplClient/</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>.Net library which provides a simple interface for the official Fantasy Premier League API</description>
-        <copyright>Copyright © Sean Comiskey 2016</copyright>
-		<tags>fpl fantasy premier league</tags>
+        <copyright>Copyright ï¿½ Sean Comiskey 2016</copyright>
+		    <tags>fpl fantasy premier league</tags>
         <dependencies>
-			<dependency id="Newtonsoft.Json" version="9.0.1" />
+			    <dependency id="Newtonsoft.Json" version="12.0.2" />
         </dependencies>
     </metadata>
     <files>
-        <file src="bin\Release\FplClient.dll" target="lib\net452\FplClient.dll" />
+        <file src="bin\Release\FplClient.dll" target="lib\netstandard2.0\FplClient.dll" />
     </files>
 </package>
