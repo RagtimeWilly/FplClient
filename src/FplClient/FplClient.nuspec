@@ -6,14 +6,14 @@
         <title>FplClient</title>
         <authors>Sean Comiskey</authors>
         <owners>Sean Comiskey</owners>
-		    <licenseUrl>https://github.com/RagtimeWilly/FplClient/LICENSE</licenseUrl>
+	<licenseUrl>https://github.com/RagtimeWilly/FplClient/LICENSE</licenseUrl>
         <projectUrl>https://github.com/RagtimeWilly/FplClient/</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>.Net library which provides a simple interface for the official Fantasy Premier League API</description>
         <copyright>Copyright � Sean Comiskey 2016</copyright>
-		    <tags>fpl fantasy premier league</tags>
+	<tags>fpl fantasy premier league</tags>
         <dependencies>
-			    <dependency id="Newtonsoft.Json" version="12.0.2" />
+	  <dependency id="Newtonsoft.Json" version="12.0.2" />
         </dependencies>
     </metadata>
     <files>
