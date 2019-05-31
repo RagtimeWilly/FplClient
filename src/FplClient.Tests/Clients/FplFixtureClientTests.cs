@@ -36,7 +36,7 @@ namespace FplClient.Tests.Clients
         {
             public TestContext()
             {
-                Sut = new FplFixtureClient(() => new HttpClient());
+                Sut = new FplFixtureClient(new HttpClient());
             }
 
             public FplFixtureClient Sut { get; }

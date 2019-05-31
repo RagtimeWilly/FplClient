@@ -45,7 +45,7 @@ namespace FplClient.Tests.Clients
         {
             public TestContext()
             {
-                Sut = new FplLeagueClient(() => new HttpClient());
+                Sut = new FplLeagueClient(new HttpClient());
             }
 
             public FplLeagueClient Sut { get; }

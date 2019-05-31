@@ -9,39 +9,33 @@ namespace FplClient.Clients
 {
     public class FplLeagueClient : IFplLeagueClient
     {
-        private readonly Func<HttpClient> _clientFactory;
+        private readonly HttpClient _client;
 
-        public FplLeagueClient(Func<HttpClient> clientFactory)
+        public FplLeagueClient(HttpClient client)
         {
-            _clientFactory = clientFactory;
+            _client = client;
         }
 
         public async Task<FplClassicLeague> GetClassicLeague(int leagueId, int? page = null)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            using (var client = _clientFactory())
-            {
-                var url = ClassicLeagueUrlFor(leagueId, page);
+            var url = ClassicLeagueUrlFor(leagueId, page);
 
-                var json = await client.GetStringAsync(url);
+            var json = await _client.GetStringAsync(url);
 
-                return JsonConvert.DeserializeObject<FplClassicLeague>(json);
-            }
+            return JsonConvert.DeserializeObject<FplClassicLeague>(json);
         }
 
         public async Task<FplHeadToHeadLeague> GetHeadToHeadLeague(int leagueId)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            using (var client = _clientFactory())
-            {
-                var url = HeadToHeadLeagueUrlFor(leagueId);
+            var url = HeadToHeadLeagueUrlFor(leagueId);
 
-                var json = await client.GetStringAsync(url);
+            var json = await _client.GetStringAsync(url);
 
-                return JsonConvert.DeserializeObject<FplHeadToHeadLeague>(json);
-            }
+            return JsonConvert.DeserializeObject<FplHeadToHeadLeague>(json);
         }
 
         private static string ClassicLeagueUrlFor(int leagueId, int? page)

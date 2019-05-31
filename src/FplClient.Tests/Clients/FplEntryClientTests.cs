@@ -47,7 +47,7 @@ namespace FplClient.Tests.Clients
         {
             public TestContext()
             {
-                Sut = new FplEntryClient(() => new HttpClient());
+                Sut = new FplEntryClient(new HttpClient());
             }
 
             public FplEntryClient Sut { get; }
