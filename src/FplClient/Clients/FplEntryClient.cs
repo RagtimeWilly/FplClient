@@ -22,7 +22,7 @@ namespace FplClient.Clients
 
             using (var client = _clientFactory())
             {
-                var url = $"https://fantasy.premierleague.com/drf/entry/{teamId}";
+                var url = $"https://fantasy.premierleague.com/api/entry/{teamId}";
 
                 var json = await client.GetStringAsync(url);
 
@@ -37,7 +37,7 @@ namespace FplClient.Clients
 
             using (var client = _clientFactory())
             {
-                var url = $"https://fantasy.premierleague.com/drf/entry/{teamId}/event/{gameweek}";
+                var url = $"https://fantasy.premierleague.com/api/entry/{teamId}/event/{gameweek}";
 
                 var json = await client.GetStringAsync(url);
 
@@ -51,7 +51,7 @@ namespace FplClient.Clients
 
             using (var client = _clientFactory())
             {
-                var url = $"https://fantasy.premierleague.com/drf/entry/{teamId}/event/{gameweek}/picks";
+                var url = $"https://fantasy.premierleague.com/api/entry/{teamId}/event/{gameweek}/picks";
 
                 var json = await client.GetStringAsync(url);
 

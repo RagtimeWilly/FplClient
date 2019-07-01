@@ -23,7 +23,7 @@ namespace FplClient.Clients
 
             using (var client = _clientFactory())
             {
-                const string url = "https://fantasy.premierleague.com/drf/events";
+                const string url = "https://fantasy.premierleague.com/api/events";
 
                 var json = await client.GetStringAsync(url);
 

@@ -46,14 +46,14 @@ namespace FplClient.Clients
 
         private static string ClassicLeagueUrlFor(int leagueId, int? page)
         {
-            var baseUrl = $"http://fantasy.premierleague.com/drf/leagues-classic-standings/{leagueId}";
+            var baseUrl = $"http://fantasy.premierleague.com/api/leagues-classic-standings/{leagueId}";
 
             return page == null ? baseUrl : $"{baseUrl}?phase=1&le-page=1&ls-page={page}";
         }
 
         private static string HeadToHeadLeagueUrlFor(int leagueId)
         {
-            return $"http://fantasy.premierleague.com/drf/leagues-h2h-standings/{leagueId}";
+            return $"http://fantasy.premierleague.com/api/leagues-h2h-standings/{leagueId}";
         }
     }
 }

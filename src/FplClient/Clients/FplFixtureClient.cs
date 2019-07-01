@@ -23,7 +23,7 @@ namespace FplClient.Clients
 
             using (var client = _clientFactory())
             {
-                const string url = "https://fantasy.premierleague.com/drf/fixtures";
+                const string url = "https://fantasy.premierleague.com/api/fixtures";
 
                 var json = await client.GetStringAsync(url);
 
@@ -37,7 +37,7 @@ namespace FplClient.Clients
 
             using (var client = _clientFactory())
             {
-                string url = $"https://fantasy.premierleague.com/drf/fixtures/?event={id}";
+                string url = $"https://fantasy.premierleague.com/api/fixtures/?event={id}";
 
                 var json = await client.GetStringAsync(url);
 
