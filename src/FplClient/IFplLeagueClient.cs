@@ -5,8 +5,8 @@ namespace FplClient
 {
     public interface IFplLeagueClient
     {
-        Task<FplClassicLeague> GetClassicLeague(int leagueId, int? page = null);
+        Task<FplClassicLeague> GetClassicLeague(int leagueId, int page = 1);
 
-        Task<FplHeadToHeadLeague> GetHeadToHeadLeague(int leagueId);
+        Task<FplHeadToHeadLeague> GetHeadToHeadLeague(int leagueId, int page = 1);
     }
 }

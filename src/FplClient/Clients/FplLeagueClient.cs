@@ -9,51 +9,51 @@ namespace FplClient.Clients
 {
     public class FplLeagueClient : IFplLeagueClient
     {
-        private readonly Func<HttpClient> _clientFactory;
+        private readonly HttpClient _client;
 
-        public FplLeagueClient(Func<HttpClient> clientFactory)
+        public FplLeagueClient(HttpClient client)
         {
-            _clientFactory = clientFactory;
+            _client = client;
         }
 
-        public async Task<FplClassicLeague> GetClassicLeague(int leagueId, int? page = null)
+        public async Task<FplClassicLeague> GetClassicLeague(int leagueId, int page = 1)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            using (var client = _clientFactory())
-            {
-                var url = ClassicLeagueUrlFor(leagueId, page);
+            var url = ClassicLeagueUrlFor(leagueId, page);
 
-                var json = await client.GetStringAsync(url);
+            var json = await _client.GetStringAsync(url);
 
-                return JsonConvert.DeserializeObject<FplClassicLeague>(json);
-            }
+            return JsonConvert.DeserializeObject<FplClassicLeague>(json);
         }
 
-        public async Task<FplHeadToHeadLeague> GetHeadToHeadLeague(int leagueId)
+        public async Task<FplHeadToHeadLeague> GetHeadToHeadLeague(int leagueId, int page = 1)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            using (var client = _clientFactory())
-            {
-                var url = HeadToHeadLeagueUrlFor(leagueId);
+            var url = HeadToHeadLeagueUrlFor(leagueId, page);
 
-                var json = await client.GetStringAsync(url);
+            var json = await _client.GetStringAsync(url);
 
-                return JsonConvert.DeserializeObject<FplHeadToHeadLeague>(json);
-            }
+            return JsonConvert.DeserializeObject<FplHeadToHeadLeague>(json);
         }
 
         private static string ClassicLeagueUrlFor(int leagueId, int? page)
         {
-            var baseUrl = $"http://fantasy.premierleague.com/api/leagues-classic-standings/{leagueId}";
+            var baseUrl = $"http://fantasy.premierleague.com/api/leagues-classic/{leagueId}/standings/";
 
-            return page == null ? baseUrl : $"{baseUrl}?phase=1&le-page=1&ls-page={page}";
+            var suffix = $"?page_new_entries={page ?? 1}&page_standings={page ?? 1}";
+
+            return $"{baseUrl}{suffix}";
         }
 
-        private static string HeadToHeadLeagueUrlFor(int leagueId)
+        private static string HeadToHeadLeagueUrlFor(int leagueId, int? page)
         {
-            return $"http://fantasy.premierleague.com/api/leagues-h2h-standings/{leagueId}";
+            var baseUrl = $"http://fantasy.premierleague.com/api/leagues-h2h/{leagueId}/standings/";
+
+            var suffix = $"?page_new_entries={page ?? 1}&page_standings={page ?? 1}";
+
+            return $"{baseUrl}{suffix}";
         }
     }
 }

@@ -64,7 +64,7 @@ namespace FplClient.Data
         public long StrengthOverallHome { get; set; }
 
         [JsonProperty("team_division")]
-        public long TeamDivision { get; set; }
+        public long? TeamDivision { get; set; }
 
         [JsonProperty("unavailable")]
         public bool Unavailable { get; set; }

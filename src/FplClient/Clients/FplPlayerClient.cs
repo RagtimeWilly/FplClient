@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -10,39 +9,35 @@ namespace FplClient.Clients
 {
     public class FplPlayerClient : IFplPlayerClient
     {
-        private readonly Func<HttpClient> _clientFactory;
+        private readonly HttpClient _client;
 
-        public FplPlayerClient(Func<HttpClient> clientFactory)
+        public FplPlayerClient(HttpClient client)
         {
-            _clientFactory = clientFactory;
+            _client = client;
         }
 
-        public async Task<IEnumerable<FplPlayer>> GetAllPlayers()
+        public async Task<ICollection<FplPlayer>> GetAllPlayers()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            using (var client = _clientFactory())
-            {
-                const string url = "https://fantasy.premierleague.com/api/elements/";
+            const string url = "https://fantasy.premierleague.com/api/bootstrap-static";
 
-                var json = await client.GetStringAsync(url);
+            var json = await _client.GetStringAsync(url);
 
-                return JsonConvert.DeserializeObject<IEnumerable<FplPlayer>>(json);
-            }
+            var data = JsonConvert.DeserializeObject<FplGlobalSettings>(json);
+
+            return data.Players;
         }
 
         public async Task<FplPlayerSummary> GetPlayer(int playerId)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            using (var client = _clientFactory())
-            {
-                var url = PlayerSummaryUrlFor(playerId);
+            var url = PlayerSummaryUrlFor(playerId);
 
-                var json = await client.GetStringAsync(url);
+            var json = await _client.GetStringAsync(url);
 
-                return JsonConvert.DeserializeObject<FplPlayerSummary>(json);
-            }
+            return JsonConvert.DeserializeObject<FplPlayerSummary>(json);
         }
 
         private static string PlayerSummaryUrlFor(int playerId)

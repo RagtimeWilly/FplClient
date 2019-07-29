@@ -10,39 +10,33 @@ namespace FplClient.Clients
 {
     public class FplFixtureClient : IFplFixtureClient
     {
-        private readonly Func<HttpClient> _clientFactory;
+        private readonly HttpClient _client;
 
-        public FplFixtureClient(Func<HttpClient> clientFactory)
+        public FplFixtureClient(HttpClient client)
         {
-            _clientFactory = clientFactory;
+            _client = client;
         }
 
-        public async Task<IEnumerable<FplFixture>> GetFixtures()
+        public async Task<ICollection<FplFixture>> GetFixtures()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            using (var client = _clientFactory())
-            {
-                const string url = "https://fantasy.premierleague.com/api/fixtures";
+            const string url = "https://fantasy.premierleague.com/api/fixtures";
 
-                var json = await client.GetStringAsync(url);
+            var json = await _client.GetStringAsync(url);
 
-                return JsonConvert.DeserializeObject<IEnumerable<FplFixture>>(json);
-            }
+            return JsonConvert.DeserializeObject<ICollection<FplFixture>>(json);
         }
 
-        public async Task<IEnumerable<FplFixture>> GetFixturesByGameweek(int id)
+        public async Task<ICollection<FplFixture>> GetFixturesByGameweek(int id)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            using (var client = _clientFactory())
-            {
-                string url = $"https://fantasy.premierleague.com/api/fixtures/?event={id}";
+            var url = $"https://fantasy.premierleague.com/api/fixtures/?event={id}";
 
-                var json = await client.GetStringAsync(url);
+            var json = await _client.GetStringAsync(url);
 
-                return JsonConvert.DeserializeObject<IEnumerable<FplFixture>>(json);
-            }
+            return JsonConvert.DeserializeObject<ICollection<FplFixture>>(json);
         }
     }
 }

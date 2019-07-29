@@ -29,7 +29,7 @@ namespace FplClient.Tests.Clients
         {
             public TestContext()
             {
-                Sut = new FplGameweekClient(() => new HttpClient());
+                Sut = new FplGameweekClient(new HttpClient());
             }
 
             public FplGameweekClient Sut { get; }
