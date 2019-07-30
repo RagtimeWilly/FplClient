@@ -7,8 +7,6 @@ namespace FplClient
     {
         Task<FplBasicEntry> Get(int teamId);
 
-        Task<FplEventEntry> GetEventEntry(int teamId, int gameweek);
-
         Task<FplEntryPicks> GetPicks(int teamId, int gameweek);
     }
 }

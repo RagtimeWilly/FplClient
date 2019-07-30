@@ -4,6 +4,7 @@ using NUnit.Framework;
 
 namespace FplClient.Tests.Clients
 {
+    [TestFixture, Explicit]
     public class FplLeagueClientTests
     {
         private TestContext _context;
@@ -20,7 +21,7 @@ namespace FplClient.Tests.Clients
             var leagueData = _context.Sut.GetClassicLeague(33).Result;
 
             Assert.IsNotNull(leagueData);
-            Assert.IsTrue(leagueData.Standings.Entries.Count > 0);
+            Assert.IsTrue(leagueData.Standings.Entries.Count + leagueData.NewEntries.Entries.Count > 0);
         }
 
         [Test]
@@ -29,23 +30,23 @@ namespace FplClient.Tests.Clients
             var leagueData = _context.Sut.GetClassicLeague(33, 2).Result;
 
             Assert.IsNotNull(leagueData);
-            Assert.IsTrue(leagueData.Standings.Entries.Count > 0);
+            Assert.IsTrue(leagueData.Standings.Entries.Count + leagueData.NewEntries.Entries.Count > 0);
         }
 
         [Test]
         public void Retrieves_head_to_head_league_data_successfully()
         {
-            var leagueData = _context.Sut.GetHeadToHeadLeague(751846).Result;
+            var leagueData = _context.Sut.GetHeadToHeadLeague(479210).Result;
 
             Assert.IsNotNull(leagueData);
-            Assert.IsTrue(leagueData.Standings.Entries.Count > 0);
+            Assert.IsTrue(leagueData.Standings.Entries.Count + leagueData.NewEntries.Entries.Count > 0);
         }
 
         private class TestContext
         {
             public TestContext()
             {
-                Sut = new FplLeagueClient(() => new HttpClient());
+                Sut = new FplLeagueClient(new HttpClient());
             }
 
             public FplLeagueClient Sut { get; }

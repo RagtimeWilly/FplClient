@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -10,25 +9,24 @@ namespace FplClient.Clients
 {
     public class FplGameweekClient : IFplGameweekClient
     {
-        private readonly Func<HttpClient> _clientFactory;
+        private readonly HttpClient _client;
 
-        public FplGameweekClient(Func<HttpClient> clientFactory)
+        public FplGameweekClient(HttpClient client)
         {
-            _clientFactory = clientFactory;
+            _client = client;
         }
 
-        public async Task<IEnumerable<FplGameweek>> GetGameweeks()
+        public async Task<ICollection<FplGameweek>> GetGameweeks()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            using (var client = _clientFactory())
-            {
-                const string url = "https://fantasy.premierleague.com/api/events";
+            const string url = "https://fantasy.premierleague.com/api/bootstrap-static";
 
-                var json = await client.GetStringAsync(url);
+            var json = await _client.GetStringAsync(url);
 
-                return JsonConvert.DeserializeObject<IEnumerable<FplGameweek>>(json);
-            }
+            var data = JsonConvert.DeserializeObject<FplGlobalSettings>(json);
+
+            return data.Events;
         }
     }
 }

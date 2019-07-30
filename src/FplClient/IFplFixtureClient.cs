@@ -6,8 +6,8 @@ namespace FplClient
 {
     public interface IFplFixtureClient
     {
-        Task<IEnumerable<FplFixture>> GetFixtures();
+        Task<ICollection<FplFixture>> GetFixtures();
 
-        Task<IEnumerable<FplFixture>> GetFixturesByGameweek(int id);
+        Task<ICollection<FplFixture>> GetFixturesByGameweek(int id);
     }
 }

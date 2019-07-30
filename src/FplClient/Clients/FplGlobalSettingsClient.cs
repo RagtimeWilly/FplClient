@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using FplClient.Data;
@@ -10,25 +8,22 @@ namespace FplClient.Clients
 {
     public class FplGlobalSettingsClient : IFplGlobalSettingsClient
     {
-        private readonly Func<HttpClient> _clientFactory;
+        private readonly HttpClient _client;
 
-        public FplGlobalSettingsClient(Func<HttpClient> clientFactory)
+        public FplGlobalSettingsClient(HttpClient client)
         {
-            _clientFactory = clientFactory;
+            _client = client;
         }
 
         public async Task<FplGlobalSettings> GetGlobalSettings()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            using (var client = _clientFactory())
-            {
-                const string url = "https://fantasy.premierleague.com/api/bootstrap-static/";
+            const string url = "https://fantasy.premierleague.com/api/bootstrap-static/";
 
-                var json = await client.GetStringAsync(url);
+            var json = await _client.GetStringAsync(url);
 
-                return JsonConvert.DeserializeObject<FplGlobalSettings>(json);
-            }
+            return JsonConvert.DeserializeObject<FplGlobalSettings>(json);
         }
     }
 }

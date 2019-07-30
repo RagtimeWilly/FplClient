@@ -6,6 +6,6 @@ namespace FplClient
 {
     public interface IFplGameweekClient
     {
-        Task<IEnumerable<FplGameweek>> GetGameweeks();
+        Task<ICollection<FplGameweek>> GetGameweeks();
     }
 }

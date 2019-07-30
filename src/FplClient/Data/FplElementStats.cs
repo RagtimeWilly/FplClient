@@ -2,10 +2,10 @@
 
 namespace FplClient.Data
 {
-    public class FplStatsOption
+    public class FplElementStats
     {
-        [JsonProperty("key")]
-        public string Key { get; set; }
+        [JsonProperty("label")]
+        public string Label { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }

@@ -34,7 +34,7 @@ namespace FplClient.Tests.Clients
         {
             public TestContext()
             {
-                Sut = new FplPlayerClient(() => new HttpClient());
+                Sut = new FplPlayerClient(new HttpClient());
             }
 
             public FplPlayerClient Sut { get; }
