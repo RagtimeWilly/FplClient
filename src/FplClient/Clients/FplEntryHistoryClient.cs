@@ -29,7 +29,7 @@ namespace FplClient.Clients
 
         private static string HistoryUrlFor(int teamId)
         {
-            return $"https://fantasy.premierleague.com/drf/entry/{teamId}/history";
+            return $"https://fantasy.premierleague.com/api/entry/{teamId}/history";
         }
     }
 }

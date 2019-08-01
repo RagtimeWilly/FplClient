@@ -16,15 +16,17 @@ namespace FplClient.Clients
             _client = client;
         }
 
-        public async Task<IEnumerable<FplPlayer>> GetAllPlayers()
+        public async Task<ICollection<FplPlayer>> GetAllPlayers()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            const string url = "https://fantasy.premierleague.com/drf/elements/";
+            const string url = "https://fantasy.premierleague.com/api/bootstrap-static";
 
             var json = await _client.GetStringAsync(url);
 
-            return JsonConvert.DeserializeObject<IEnumerable<FplPlayer>>(json);
+            var data = JsonConvert.DeserializeObject<FplGlobalSettings>(json);
+
+            return data.Players;
         }
 
         public async Task<FplPlayerSummary> GetPlayer(int playerId)
@@ -40,7 +42,7 @@ namespace FplClient.Clients
 
         private static string PlayerSummaryUrlFor(int playerId)
         {
-            return $"http://fantasy.premierleague.com/drf/element-summary/{playerId}";
+            return $"http://fantasy.premierleague.com/api/element-summary/{playerId}";
         }
     }
 }

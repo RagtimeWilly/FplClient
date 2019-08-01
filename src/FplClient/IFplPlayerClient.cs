@@ -6,7 +6,7 @@ namespace FplClient
 {
     public interface IFplPlayerClient
     {
-        Task<IEnumerable<FplPlayer>> GetAllPlayers();
+        Task<ICollection<FplPlayer>> GetAllPlayers();
 
         Task<FplPlayerSummary> GetPlayer(int playerId);
     }

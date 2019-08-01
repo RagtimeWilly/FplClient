@@ -19,7 +19,7 @@ namespace FplClient.Clients
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            const string url = "https://fantasy.premierleague.com/drf/bootstrap-static";
+            const string url = "https://fantasy.premierleague.com/api/bootstrap-static/";
 
             var json = await _client.GetStringAsync(url);
 

@@ -16,15 +16,17 @@ namespace FplClient.Clients
             _client = client;
         }
 
-        public async Task<IEnumerable<FplGameweek>> GetGameweeks()
+        public async Task<ICollection<FplGameweek>> GetGameweeks()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            const string url = "https://fantasy.premierleague.com/drf/events";
+            const string url = "https://fantasy.premierleague.com/api/bootstrap-static";
 
             var json = await _client.GetStringAsync(url);
 
-            return JsonConvert.DeserializeObject<IEnumerable<FplGameweek>>(json);
+            var data = JsonConvert.DeserializeObject<FplGlobalSettings>(json);
+
+            return data.Events;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -16,26 +17,26 @@ namespace FplClient.Clients
             _client = client;
         }
 
-        public async Task<IEnumerable<FplFixture>> GetFixtures()
+        public async Task<ICollection<FplFixture>> GetFixtures()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            const string url = "https://fantasy.premierleague.com/drf/fixtures";
+            const string url = "https://fantasy.premierleague.com/api/fixtures";
 
             var json = await _client.GetStringAsync(url);
 
-            return JsonConvert.DeserializeObject<IEnumerable<FplFixture>>(json);
+            return JsonConvert.DeserializeObject<ICollection<FplFixture>>(json);
         }
 
-        public async Task<IEnumerable<FplFixture>> GetFixturesByGameweek(int id)
+        public async Task<ICollection<FplFixture>> GetFixturesByGameweek(int id)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            var url = $"https://fantasy.premierleague.com/drf/fixtures/?event={id}";
+            var url = $"https://fantasy.premierleague.com/api/fixtures/?event={id}";
 
             var json = await _client.GetStringAsync(url);
 
-            return JsonConvert.DeserializeObject<IEnumerable<FplFixture>>(json);
+            return JsonConvert.DeserializeObject<ICollection<FplFixture>>(json);
         }
     }
 }
