@@ -8,16 +8,10 @@ namespace FplClient.Data
         [JsonProperty("chips")]
         public ICollection<FplEntryHistoryChip> Chips { get; set; }
 
-        [JsonProperty("entry")]
-        public FplEntry Entry { get; set; }
-
-        [JsonProperty("leagues")]
-        public FplEntryLeagues Leagues { get; set; }
-
-        [JsonProperty("season")]
+        [JsonProperty("past")]
         public ICollection<FplEntrySeasonHistory> SeasonHistory { get; set; }
 
-        [JsonProperty("history")]
+        [JsonProperty("current")]
         public ICollection<FplEventEntryHistory> GameweekHistory { get; set; }
     }
 }

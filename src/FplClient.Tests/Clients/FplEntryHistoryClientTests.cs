@@ -18,7 +18,7 @@ namespace FplClient.Tests.Clients
         [Test]
         public void Retrieves_team_history_successfully()
         {
-            var data = _context.Sut.GetHistory(208476).Result;
+            var data = _context.Sut.GetHistory(639).Result;
 
             Assert.IsNotNull(data);
         }
