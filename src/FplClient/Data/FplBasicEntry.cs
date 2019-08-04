@@ -45,7 +45,7 @@ namespace FplClient.Data
         public int? SummaryEventRank { get; set; }
 
         [JsonProperty("current_event")]
-        public int CurrentEvent { get; set; }
+        public int? CurrentEvent { get; set; }
 
         [JsonProperty("leagues")]
         public FplEntryLeagues Leagues { get; set; }
