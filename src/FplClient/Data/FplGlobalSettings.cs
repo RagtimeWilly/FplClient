@@ -28,15 +28,5 @@ namespace FplClient.Data
 
         [JsonProperty("total_players")]
         public long TotalPlayers { get; set; }
-
-        [JsonProperty("current-event")]
-        public int? CurrentEvent { get; set; }
-
-        [JsonProperty("next-event")]
-        public int? NextEvent { get; set; }
-
-        [JsonProperty("last-entry-event")]
-        public int? LastEntryEvent { get; set; }
-
     }
 }

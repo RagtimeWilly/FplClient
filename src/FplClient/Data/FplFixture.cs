@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace FplClient.Data
@@ -25,7 +24,7 @@ namespace FplClient.Data
         public string FormattedDeadlineTime { get; set; }
 
         [JsonProperty("stats")]
-        public ICollection<FplFixtureStats> Stats { get; set; }
+        public FplFixtureStat[] Stats { get; set; }
 
         [JsonProperty("team_h_difficulty")]
         public int HomeTeamDifficulty { get; set; }
