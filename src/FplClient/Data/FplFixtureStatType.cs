@@ -9,6 +9,8 @@
         PenaltyMissed,
         YellowCard,
         RedCard,
-        Save
+        Save,
+        Bonus,
+        Bps
     }
 }

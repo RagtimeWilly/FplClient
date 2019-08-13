@@ -5,6 +5,9 @@ namespace FplClient.Data
 {
     public class FplFixtureStat
     {
+        [JsonProperty("identifier")]
+        public string Identifier { get; set; }
+
         [JsonProperty("a")]
         public ICollection<FplFixtureStatValue> AwayStats { get; set; }
 
