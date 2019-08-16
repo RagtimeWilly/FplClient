@@ -20,7 +20,7 @@ namespace FplClient.Clients
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            var url = $"https://fantasy.premierleague.com/api/entry/{teamId}";
+            var url = $"https://fantasy.premierleague.com/api/entry/{teamId}/";
 
             var json = await _client.GetStringAsync(url);
 
@@ -31,7 +31,7 @@ namespace FplClient.Clients
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            var url = $"https://fantasy.premierleague.com/api/entry/{teamId}/event/{gameweek}/picks";
+            var url = $"https://fantasy.premierleague.com/api/entry/{teamId}/event/{gameweek}/picks/";
 
             var json = await _client.GetStringAsync(url);
 
