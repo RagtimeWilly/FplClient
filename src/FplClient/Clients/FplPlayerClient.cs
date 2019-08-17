@@ -20,7 +20,7 @@ namespace FplClient.Clients
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            const string url = "https://fantasy.premierleague.com/api/bootstrap-static";
+            const string url = "https://fantasy.premierleague.com/api/bootstrap-static/";
 
             var json = await _client.GetStringAsync(url);
 
@@ -42,7 +42,7 @@ namespace FplClient.Clients
 
         private static string PlayerSummaryUrlFor(int playerId)
         {
-            return $"http://fantasy.premierleague.com/api/element-summary/{playerId}";
+            return $"http://fantasy.premierleague.com/api/element-summary/{playerId}/";
         }
     }
 }

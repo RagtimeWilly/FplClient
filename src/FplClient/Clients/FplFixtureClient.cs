@@ -21,7 +21,7 @@ namespace FplClient.Clients
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            const string url = "https://fantasy.premierleague.com/api/fixtures";
+            const string url = "https://fantasy.premierleague.com/api/fixtures/";
 
             var json = await _client.GetStringAsync(url);
 
