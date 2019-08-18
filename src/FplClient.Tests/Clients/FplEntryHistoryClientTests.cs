@@ -20,7 +20,7 @@ namespace FplClient.Tests.Clients
         {
             var data = _context.Sut.GetHistory(639).Result;
 
-            Assert.IsNotNull(data);
+            Assert.IsNotNull(data.SeasonHistory);
         }
 
         private class TestContext
