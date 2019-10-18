@@ -12,7 +12,7 @@ namespace FplClient.Data
         public string FormattedKickOffTime { get; set; }
 
         [JsonProperty("started")]
-        public bool Started { get; set; }
+        public bool? Started { get; set; }
 
         [JsonProperty("event_day")]
         public bool? EventDay { get; set; }
