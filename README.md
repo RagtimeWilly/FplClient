@@ -104,7 +104,7 @@ This will return all the [FplFixture](https://github.com/RagtimeWilly/FplClient/
 ```
 var client = new FplFixtureClient(new HttpClient());
 
-var fixtures = await client.GetFixtures(8);
+var fixtures = await client.GetFixturesByGameweek(8);
 ```
 This will return all the [FplFixture](https://github.com/RagtimeWilly/FplClient/blob/master/src/FplClient/Data/FplFixture.cs) data as an `IEnumerable<FplFixture>` for gameweek 8.
 
